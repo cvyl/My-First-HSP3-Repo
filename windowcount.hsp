@@ -1,0 +1,14 @@
+sdim test_message, 32
+dim current, 10
+screen 0, 240, 480, SCREEN_FIXEDSIZE
+
+*main
+	button gosub "click", *newscreen
+	stop
+
+*newscreen
+	current=current + 1
+	test_message="Currently: " + current + "!"
+	screen current, 400,400, SCREEN_FIXEDSIZE
+	mes test_message
+	return
