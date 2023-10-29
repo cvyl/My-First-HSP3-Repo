@@ -1,0 +1,20 @@
+#uselib "winmm.dll"
+#cfunc timeGetTime "timeGetTime"
+
+sdim savedat, 1024
+sdim savename, 256
+
+*@
+	screen 0, 360,240, SCREEN_FIXEDSIZE
+	title "savedata"
+	pos 110, 50
+	mes "Savedata input\n"
+	input savedat, 100,20
+	mes "Saveata name\n"
+	input savename, 100, 20
+	button gosub "Execute", *savedata
+	stop
+
+*savedata
+	bsave "data\\savedata\\" + savename  + "_debug_" + timeGetTime() + ".gsf", savedat
+	return
